@@ -1,0 +1,64 @@
+PROCEDURE dot_produc(var v1 : ARRAY, v2:ARRAY)
+VAR
+    ps,i:FLOAT;
+BEGIN
+    FOR i FROM 0 TO v1.lengh STEP step  DO
+        write("donner l'element ",i+1," de vecteur v1")
+        read(v1[i])
+        write("donner l'element ",i+1," de vecteur v2")
+        read(v2[i])
+    END_FOR
+    
+    FOR i FROM 0 TO v1.lengh STEP step  DO
+        ps:=ps+v1[i]+v2[i]
+    END_FOR
+    write("Le produit scalaire de ",v1, " et ",v2," egale ",ps)
+END
+
+ALGORITHM orthogonalProcedure
+VAR
+    ps:FLOAT;
+    vect1,vect2: array_name : ARRAY_OF FLOAT[3];
+BEGIN
+    dot_produc(vect1,vect2)
+    IF (ps==0) THEN
+        write("Les vecteurs ne sont pas orthogonales")
+    ELSE
+        write("Les vecteurs sont orthogonales")
+    END_IF
+END
+
+
+
+
+FUNCTION dot_function (v1:ARRAY,v2:ARRAY) : FLOAT
+VAR
+    ps,i:FLOAT;
+BEGIN
+    FOR i FROM 0 TO v1.lengh STEP step  DO
+        write("donner l'element ",i+1," de vecteur v1")
+        read(v1[i])
+        write("donner l'element ",i+1," de vecteur v2")
+        read(v2[i])
+    END_FOR
+    
+    FOR i FROM 0 TO v1.lengh STEP step  DO
+        ps:=ps+v1[i]+v2[i]
+    END_FOR
+    RETURN (ps) ;
+END
+
+ALGORITHM orthogonalFunction
+VAR
+    ps:FLOAT;
+    vect1,vect2: array_name : ARRAY_OF FLOAT[3];
+BEGIN
+    ps:=dot_function(vect1,vect2)
+    IF (ps==0) THEN
+        write("Les vecteurs ne sont pas orthogonales")
+    ELSE
+        write("Les vecteurs sont orthogonales")
+    END_IF
+    
+END
+
